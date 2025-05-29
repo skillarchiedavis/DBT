@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: estateETL
+    database: Estate
+    schema: dbo
+    tables:
+      - name: balance_staging
+      - name: creditcard_staging
+
+
+

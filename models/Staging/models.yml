@@ -1,0 +1,71 @@
+version: 2
+
+models:
+  - name: estateETL
+  - name: balance
+    description: "Staging model for estate transactions"
+    columns:
+      - name: ITEMS
+        data_tests:
+          - not_null
+      - name: COST
+        data_tests:
+          - not_null
+      - name: Institution
+        data_tests:
+          - not_null
+          - accepted_values:
+              values : ['Bank','Domestic','Education', 'Fun', 'Gaming','Government', 'Healthcare', 'Insurance', 'Religion']
+              severity: warn
+      - name: Industry
+        data_tests:
+          - not_null
+          - accepted_values:
+              values : [' Car Maintenance', 'Banking', 'Car Insurance','Church','Date Night','Electronics','Entertainment','Finance & Economy'
+                         ,'Food & Beverages','Health','Home','Life Insurance','Outing','School','Transportation']
+              severity: warn
+      - name: DATE
+        data_tests:
+          - not_null
+      - name: Month
+        data_tests:
+          - not_null
+      - name: Year
+        data_tests:
+          - not_null
+  - name: creditcard
+    description: "Staging model for credit card transactions"
+    columns:
+      - name: ITEMS
+        data_tests:
+          - not_null
+      - name: COST
+        data_tests:
+          - not_null
+      - name: Institution
+        data_tests:
+          - not_null
+          - accepted_values:
+              values : ['Bank','Domestic','Education', 'Fun', 'Gaming','Government', 'Healthcare', 'Insurance', 'Religion']
+              severity: warn
+      - name: Industry
+        data_tests:
+          - not_null
+          - accepted_values:
+              values : ['Car Maintenance','Banking', 'Car Insurance','Church','Date Night','Electronics','Entertainment','Finance & Economy'
+                         ,'Food & Beverages','Health','Home','Life Insurance','Outing','School','Transportation']
+              severity: warn
+      - name: DATE
+        data_tests:
+          - not_null
+      - name: Month
+        data_tests:
+          - not_null
+      - name: Year
+        data_tests:
+          - not_null
+  - name: testmacro
+    description: "A starter dbt model"
+    config:
+      materialized: table
+      alias: creditcard_transaction2

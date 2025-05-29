@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: estateETL
+  - name: CreditCardTransaction
+    description: "Table for credit card transactions"
+    config:
+      materialized: incremental
+      alias: creditcard_transaction
+  - name: EstateTransaction
+    description: "Table for estate transactions"
+    config:
+      materialized: incremental
+      alias: EstateTransaction
